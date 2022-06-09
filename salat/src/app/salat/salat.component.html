@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+      <tr>
+          <th scope="col">التاريخ</th>
+        <th scope="col">الفجر</th>
+        <th scope="col">الشروق</th>
+        <th scope="col">الظهر</th>
+        <th scope="col">العصر</th>
+        <th scope="col">االمغرب</th>
+        <th scope="col">العشاء</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of salats">
+          <td>{{s.date_for}}</td>
+        <td>{{s.fajr}}</td>
+        <td>{{s.shurooq}}</td>
+        <td>{{s.dhuhr}}</td>
+        <td>{{s.asr}}</td>
+        <td>{{s.maghrib}}</td>
+        <td>{{s.isha}}</td>
+      </tr>
+    </tbody>
+  </table>

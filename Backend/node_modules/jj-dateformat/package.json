@@ -1,0 +1,27 @@
+{
+  "name": "jj-dateformat",
+  "version": "0.0.1",
+  "homepage": "https://github.com/PeiJueChen/JJ-DateFormat",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:PeiJueChen/JJ-DateFormat.git"
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
+  "description": "A conversion date tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "date",
+    "format",
+    "JJ"
+  ],
+  "author": "Jason chan",
+  "license": "ISC",
+  "dependencies": {
+
+  }
+}
