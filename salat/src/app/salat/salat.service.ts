@@ -18,4 +18,7 @@ export class SalatService {
   getSalet(): Observable<Salat[]> {
     return this._http.get<Salat[]>(this.host+`/one/:${this.date}`);
   }
+  getSalatByName():Observable<Salat[]>{
+    return this._http.get<Salat[]>(this.host+`/salat`)
+  }
 }

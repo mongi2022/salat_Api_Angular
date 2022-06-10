@@ -1,26 +1,71 @@
-<table class="table">
-    <thead>
-      <tr>
-          <th scope="col">التاريخ</th>
-        <th scope="col">الفجر</th>
-        <th scope="col">الشروق</th>
-        <th scope="col">الظهر</th>
-        <th scope="col">العصر</th>
-        <th scope="col">االمغرب</th>
-        <th scope="col">العشاء</th>
-        
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let s of salats">
-          <td>{{s.date_for}}</td>
-        <td>{{s.fajr}}</td>
-        <td>{{s.shurooq}}</td>
-        <td>{{s.dhuhr}}</td>
-        <td>{{s.asr}}</td>
-        <td>{{s.maghrib}}</td>
-        <td>{{s.isha}}</td>
-      </tr>
-    </tbody>
-  </table>
+<br>
+<h1 class="row justify-content-center">مواقيت الصلاة</h1> 
+<h3 class="row justify-content-center">{{today | date:'medium' }}</h3>
+<br>
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+        <div class="card" style="width: 80%">
+          <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">الفجر</h5>
+            <p class="card-text">{{salats[0].fajr}}</p>
+            <a href="#" class="btn btn-primary">{{fajr}}</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card" style="width: 80%">
+          <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">الشروق</h5>
+            <p class="card-text">{{ salats[0].shurooq }}</p>
+            <a href="#" class="btn btn-primary">{{shurooq}}</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card" style="width: 80%">
+          <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">الظهر</h5>
+            <p class="card-text">{{ salats[0].dhuhr }}</p>
+            <a href="#" class="btn btn-primary">{{dhuhr}}</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card" style="width: 80%">
+          <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">العصر</h5>
+            <p class="card-text">{{ salats[0].asr }}</p>
+            <a href="#" class="btn btn-primary">{{asr}}</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card" style="width: 80%">
+          <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">االمغرب</h5>
+            <p class="card-text">{{ salats[0].maghrib }}</p>
+            <a href="#" class="btn btn-primary">{{maghrib}}</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card" style="width: 80%">
+          <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">العشاء</h5>
+            <p class="card-text">{{ salats[0].isha }}</p>
+            <a href="#" class="btn btn-primary">{{isha}}</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
