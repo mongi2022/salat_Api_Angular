@@ -25,6 +25,7 @@ export class SalatComponent implements OnInit {
   isha!: number;
   tt!: any;
   ss: any;
+  ish!:any
   // beginningTime = moment().format("hh:mm a");
   // endTime = this.salats[0].fajr
   // options = {weekday:'long',year:'numeric',month:'long',day:'numeric'}
@@ -106,10 +107,11 @@ export class SalatComponent implements OnInit {
       console.log(`isha: ${this.isha}`);
       const minuteIsha= Math.abs(moment.duration(Number(this.isha), "minutes").asMinutes())
       var minutes = minuteIsha % 60;
-      var hours = (minuteIsha-minutes)/60;
-      var magh = hours + ':' + minutes;
-      console.log('Isha reste :',magh);
 
+      var hours = (minuteIsha-minutes)/60;
+      this.ish = hours + ':' + minutes ;
+      console.log('Isha reste :',this.ish);
+///setinterval
 
 
     });
