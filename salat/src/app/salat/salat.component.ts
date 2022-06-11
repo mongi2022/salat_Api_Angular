@@ -31,7 +31,24 @@ export class SalatComponent implements OnInit {
   fajrOut!: string;
   shourOut!: string;
   shourOut2!: string;
-  constructor(private _salatService: SalatService) {}
+  timer: number = 0;
+  interval: any;
+   constructor(private _salatService: SalatService) {
+
+    let seconds: number = 60;
+
+    const makeIteration = (): void => {
+        if (seconds > 0) {
+            console.log(seconds);
+            setTimeout(makeIteration, 1000); // 1 second waiting
+        }
+        seconds -= 1;
+    };
+
+    setTimeout(makeIteration, 1000);
+
+
+  }
 
   ngOnInit(): void {
     this.getSalatController();
@@ -146,7 +163,7 @@ console.log(Number((this.salats[0].dhuhr).charAt(3)+(this.salats[0].dhuhr).charA
         this.magh = hours + ':' + minutes  ;
 
       }
-      
+
       //isha
       var a = moment(Date.now());
       var t = moment(this.salats[0].isha, 'HH:mm A');
@@ -168,4 +185,6 @@ console.log(Number((this.salats[0].dhuhr).charAt(3)+(this.salats[0].dhuhr).charA
 
     });
   }
+
+
 }
