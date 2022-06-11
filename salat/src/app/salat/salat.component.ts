@@ -27,6 +27,7 @@ export class SalatComponent implements OnInit {
   magh!: string;
   asrOut!: string;
   dhuhrOut!: string;
+  dhuhrIq!:string
   fajrOut!: string;
   shourOut!: string;
   shourOut2!: string;
@@ -74,7 +75,7 @@ export class SalatComponent implements OnInit {
         var hours = (minuteShq - minutes) / 60;
         this.shourOut = hours + ':' + minutes;
       }
-      //dhuhr
+      //dhuhr//dhuhrIq
       var a = moment(Date.now());
       var t = moment(this.salats[0].dhuhr, 'HH:mm A');
       this.dhuhr = t.diff(a, 'minutes');
@@ -82,16 +83,24 @@ export class SalatComponent implements OnInit {
       const minuteDuhr = moment
         .duration(Number(this.dhuhr), 'minutes')
         .asMinutes();
+console.log(Number((this.salats[0].dhuhr).charAt(3)+(this.salats[0].dhuhr).charAt(4)));
+
+        this.dhuhrIq =this.salats[0].dhuhr ;
+        console.log((Number(this.dhuhrIq.split(':')[1].split(' ')[0])+15));
+
+
       if (minuteDuhr < 0) {
         var minutes = 60 + (minuteDuhr % 60);
         var hours = 24 + (minuteDuhr - minutes) / 60;
 
         this.dhuhrOut = hours + ':' + minutes;
 
+
       } else if (minuteDuhr > 0) {
         var minutes = minuteDuhr % 60;
         var hours = (minuteDuhr - minutes) / 60;
         this.dhuhrOut = hours + ':' + minutes;
+
       }
       //asr
       var a = moment(Date.now());
@@ -119,10 +128,10 @@ export class SalatComponent implements OnInit {
         .duration(Number(this.maghrib), 'minutes')
         .asMinutes();
         const seconde = moment
-        // .duration(Number(this.maghrib), 'seconds')
-        // .asSeconds();
-        // console.log(seconde);
-        // console.log(minute);
+        .duration(Number(this.maghrib), 'seconds')
+        .asSeconds();
+      //  console.log(seconde%60);
+    //    console.log(minute);
 
       if (minute < 0) {
         var minutes = 60 + (minute % 60);
@@ -137,6 +146,7 @@ export class SalatComponent implements OnInit {
         this.magh = hours + ':' + minutes  ;
 
       }
+      
       //isha
       var a = moment(Date.now());
       var t = moment(this.salats[0].isha, 'HH:mm A');
