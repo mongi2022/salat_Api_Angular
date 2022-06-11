@@ -1,6 +1,6 @@
 
 <br>
-<h1 class="row justify-content-center">مواقيت الصلاة</h1> 
+<h1 class="row justify-content-center">مواقيت الصلاة</h1>
 <h3 class="row justify-content-center">{{today | date:'medium' }}</h3>
 <br>
 <table class="table">
@@ -32,7 +32,7 @@
           <div class="card-body">
             <h5 class="card-title">الظهر</h5>
             <p class="card-text">{{ salats[0].dhuhr }}</p>
-            <a href="#" class="btn btn-primary">{{dhuhr}}</a>
+            <a href="#" class="btn btn-primary">reste: {{dhuhrOut}}</a>
           </div>
         </div>
       </td>
@@ -42,7 +42,7 @@
           <div class="card-body">
             <h5 class="card-title">العصر</h5>
             <p class="card-text">{{ salats[0].asr }}</p>
-            <a href="#" class="btn btn-primary">{{asr}}</a>
+            <a href="#" class="btn btn-primary">reste: {{asrOut}}</a>
           </div>
         </div>
       </td>
@@ -52,7 +52,7 @@
           <div class="card-body">
             <h5 class="card-title">االمغرب</h5>
             <p class="card-text">{{ salats[0].maghrib }}</p>
-            <a href="#" class="btn btn-primary">{{maghrib}}</a>
+            <a href="#" class="btn btn-primary">reste: {{magh}}</a>
           </div>
         </div>
       </td>
