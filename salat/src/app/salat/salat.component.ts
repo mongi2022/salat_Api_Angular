@@ -14,9 +14,7 @@ export class SalatComponent implements OnInit {
   today = new Date();
   time = new Date().getTime();
   dateNow = moment().format('hh:mm a');
-
   timeAgo!: String;
-
   fajr!: number;
   shurooq!: number;
   dhuhr!: number;
@@ -28,12 +26,10 @@ export class SalatComponent implements OnInit {
   ish!: string;
   magh!: string;
   asrOut!: string;
-  dhuhrOut!:string
-  // beginningTime = moment().format("hh:mm a");
-  // endTime = this.salats[0].fajr
-  // options = {weekday:'long',year:'numeric',month:'long',day:'numeric'}
-  //dateArab = this.today.toLocaleDateString("ar-EG")
-
+  dhuhrOut!: string;
+  fajrOut!: string;
+  shourOut!: string;
+  shourOut2!: string;
   constructor(private _salatService: SalatService) {}
 
   ngOnInit(): void {
@@ -46,79 +42,120 @@ export class SalatComponent implements OnInit {
       this.salats = data;
       //fajr
       var a = moment(Date.now());
-      var t = moment(this.salats[0].dhuhr, 'HH:mm A');
-      this.dhuhr = t.diff(a, 'minutes');
-      this.tt = moment(this.dhuhr, 'HH:mm:ss');
-      const minuteFajr = Math.abs(
-        moment.duration(Number(this.dhuhr), 'minutes').asMinutes()
-      );
-      console.log('minutes dhuhr',minuteFajr);
-
-      var minutes = minuteFajr % 60;
-      var hours = (minuteFajr - minutes) / 60;
-      this.dhuhrOut = hours + ':' + minutes;
-
+      var t = moment(this.salats[0].fajr, 'HH:mm A');
+      this.fajr = t.diff(a, 'minutes');
+      this.tt = moment(this.fajr, 'HH:mm:ss');
+      const minuteFajr = moment
+        .duration(Number(this.fajr), 'minutes')
+        .asMinutes();
+      if (minuteFajr < 0) {
+        var minutes = 60 + (minuteFajr % 60);
+        var hours = 24 + (minuteFajr - minutes) / 60;
+        this.fajrOut = hours + ':' + minutes;
+      } else if (minuteFajr > 0) {
+        var minutes = minuteFajr % 60;
+        var hours = (minuteFajr - minutes) / 60;
+        this.fajrOut = hours + ':' + minutes;
+      }
       //shurooq
       var a = moment(Date.now());
       var t = moment(this.salats[0].shurooq, 'HH:mm A');
       this.shurooq = t.diff(a, 'minutes');
       this.tt = moment(this.shurooq, 'HH:mm:ss');
-
+      const minuteShq = moment
+        .duration(Number(this.shurooq), 'minutes')
+        .asMinutes();
+      if (minuteShq < 0) {
+        var minutes = 60 + (minuteShq % 60);
+        var hours = 24 + (minuteShq - minutes) / 60;
+        this.shourOut = hours + ':' + minutes;
+      } else if (minuteShq > 0) {
+        var minutes = minuteShq % 60;
+        var hours = (minuteShq - minutes) / 60;
+        this.shourOut = hours + ':' + minutes;
+      }
       //dhuhr
       var a = moment(Date.now());
       var t = moment(this.salats[0].dhuhr, 'HH:mm A');
       this.dhuhr = t.diff(a, 'minutes');
       this.tt = moment(this.dhuhr, 'HH:mm:ss');
-      const minuteDuhr = Math.abs(
-        moment.duration(Number(this.dhuhr), 'minutes').asMinutes()
-      );
-      console.log('minutes dhuhr',minuteDuhr);
+      const minuteDuhr = moment
+        .duration(Number(this.dhuhr), 'minutes')
+        .asMinutes();
+      if (minuteDuhr < 0) {
+        var minutes = 60 + (minuteDuhr % 60);
+        var hours = 24 + (minuteDuhr - minutes) / 60;
 
-      var minutes = minuteDuhr % 60;
-      var hours = (minuteDuhr - minutes) / 60;
-      this.dhuhrOut = hours + ':' + minutes;
+        this.dhuhrOut = hours + ':' + minutes;
 
+      } else if (minuteDuhr > 0) {
+        var minutes = minuteDuhr % 60;
+        var hours = (minuteDuhr - minutes) / 60;
+        this.dhuhrOut = hours + ':' + minutes;
+      }
       //asr
       var a = moment(Date.now());
       var t = moment(this.salats[0].asr, 'HH:mm A');
       this.asr = t.diff(a, 'minutes');
       this.tt = moment(this.asr, 'HH:mm:ss');
-      console.log(`asr: ${this.asr}`);
-      const minuteAsr = Math.abs(
-        moment.duration(Number(this.asr), 'minutes').asMinutes()
-      );
-      var minutes = minuteAsr % 60;
-      var hours = (minuteAsr - minutes) / 60;
-      this.asrOut = hours + ':' + minutes;
-      console.log('asr reste :', this.asrOut);
+      const minuteAsr = moment
+        .duration(Number(this.asr), 'minutes')
+        .asMinutes();
+      if (minuteAsr < 0) {
+        var minutes = 60 + (minuteAsr % 60);
+        var hours = 24 + (minuteAsr - minutes) / 60;
+        this.asrOut = hours + ':' + minutes;
+      } else if (minuteAsr > 0) {
+        var minutes = minuteAsr % 60;
+        var hours = (minuteAsr - minutes) / 60;
+        this.asrOut = hours + ':' + minutes;
+      }
       //maghrib
-
       var a = moment(Date.now());
       var t = moment(this.salats[0].maghrib, 'HH:mm A');
       this.maghrib = t.diff(a, 'minutes');
       this.tt = moment(this.maghrib, 'HH:mm:ss');
-      console.log(`maghrib: ${this.maghrib}`);
-      const minute = Math.abs(
-        moment.duration(Number(this.maghrib), 'minutes').asMinutes()
-      );
-      var minutes = minute % 60;
-      var hours = (minute - minutes) / 60;
-      this.magh = hours + ':' + minutes;
-      console.log('maghrib reste :', this.magh);
+      const minute = moment
+        .duration(Number(this.maghrib), 'minutes')
+        .asMinutes();
+        const seconde = moment
+        // .duration(Number(this.maghrib), 'seconds')
+        // .asSeconds();
+        // console.log(seconde);
+        // console.log(minute);
+
+      if (minute < 0) {
+        var minutes = 60 + (minute % 60);
+        var hours = 24 + (minute - minutes) / 60;
+        this.magh = hours + ':' + minutes;
+        var secondes=minute%3600
+        this.magh = hours + ':' + minutes ;
+      } else if (minute > 0) {
+        var minutes = minute % 60;
+        var hours = (minute - minutes) / 60;
+        var secondes=minutes%3600
+        this.magh = hours + ':' + minutes  ;
+
+      }
       //isha
       var a = moment(Date.now());
       var t = moment(this.salats[0].isha, 'HH:mm A');
       this.isha = t.diff(a, 'minutes');
       this.tt = moment(this.isha, 'HH:mm:ss').format('LTS');
-      console.log(`isha: ${this.isha}`);
-      const minuteIsha = Math.abs(
-        moment.duration(Number(this.isha), 'minutes').asMinutes()
-      );
-      var minutes = minuteIsha % 60;
-      var hours = (minuteIsha - minutes) / 60;
-      this.ish = hours + ':' + minutes;
-      console.log('Isha reste :', this.ish);
+      const minuteIsha = moment
+        .duration(Number(this.isha), 'minutes')
+        .asMinutes();
+      if (minuteIsha < 0) {
+        var minutes = 60 + (minuteIsha % 60);
+        var hours = 24 + (minuteIsha - minutes) / 60;
+        this.ish = hours + ':' + minutes;
+      } else if (minuteIsha > 0) {
+        var minutes = minuteIsha % 60;
+        var hours = (minuteIsha - minutes) / 60;
+        this.ish = hours + ':' + minutes;
+      }
       ///setinterval
+
     });
   }
 }
