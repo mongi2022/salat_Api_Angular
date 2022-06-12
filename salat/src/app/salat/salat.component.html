@@ -12,29 +12,21 @@
           <div class="card-body">
             <h5 class="card-title">الفجر</h5>
             <p class="card-text">{{salats[0].fajr}}</p>
+            <a href="#" class="btn btn-info">:إقامةالصلاة<br>
+              {{resultFajr}}</a><br><br>
             <a href="#" class="btn btn-primary">reste: {{fajrOut}}</a>
           </div>
         </div>
       </td>
-      <td>
-        <div class="card" style="width: 80%">
-          <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">الشروق</h5>
-            <p class="card-text">{{ salats[0].shurooq }}</p>
-            <a href="#" class="btn btn-primary">reste: {{shourOut}}</a>
 
-          </div>
-        </div>
-      </td>
       <td>
         <div class="card" style="width: 80%">
           <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">الظهر</h5>
             <p class="card-text">{{ salats[0].dhuhr }}</p>
-            <span>count: {{result2}}</span>
-            <a href="#" class="btn btn-info">Iqamat: {{dhuhrIqMin}}</a><br><br>
+            <a href="#" class="btn btn-info">:إقامةالصلاة<br>
+               {{result2}}</a><br><br>
             <a href="#" class="btn btn-primary">reste: {{dhuhrOut}}</a>
           </div>
         </div>
@@ -45,6 +37,9 @@
           <div class="card-body">
             <h5 class="card-title">العصر</h5>
             <p class="card-text">{{ salats[0].asr }}</p>
+            <a href="#" class="btn btn-info">:إقامةالصلاة<br>
+              {{resultAsr}}</a><br><br>
+
             <a href="#" class="btn btn-primary">reste: {{asrOut}}</a>
           </div>
         </div>
@@ -53,8 +48,10 @@
         <div class="card" style="width: 80%">
           <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/e/9/7/e97de28f43_103803_mosquee-bleue-istanbul.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">االمغرب</h5>
-            <p class="card-text">{{ salats[0].maghrib }}</p>
+            <h5 class="card-title">المغرب</h5>
+            <p class="card-text">{{ maghribIqMin}}</p>
+            <a href="#" class="btn btn-info">:إقامةالصلاة<br>
+              {{resultMagh}}</a><br><br>
             <a href="#" class="btn btn-primary">reste: {{magh}}</a>
           </div>
         </div>
@@ -65,6 +62,8 @@
           <div class="card-body">
             <h5 class="card-title">العشاء</h5>
             <p class="card-text">{{ salats[0].isha }}</p>
+            <a href="#" class="btn btn-info">:إقامةالصلاة<br>
+              {{resultIsha}}</a><br><br>
             <a href="#" class="btn btn-primary">reste: {{ish}}</a>
           </div>
         </div>
